@@ -10,6 +10,6 @@ def convert_to_base_10(n):
     length-=1
     
   return value
-print('test for convert to base 10')
-assert convert_to_base_10(10011)==19
+print('testing for convert to base 10 of input 10011')
+assert convert_to_base_10(10011)==19,'output was {} when it should have been {}'.format(convert_to_base_10(10011),19)
 print(convert_to_base_10(10011))
