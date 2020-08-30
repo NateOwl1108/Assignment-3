@@ -1,30 +1,49 @@
-class Stack():
-  def _init_(self):
-    self.show_data=[]
-  def push(self,value):
-    self.show_data.append(value)
+class Stack:
+     def __init__(self):
+         self.full_data = []
 
-  def Pop(self):
-    return self.show_data.pop()
-    
-  def peek(self):
-    print(list[len(list) -1])
+     def push(self, value):
+         self.full_data.append(value)
 
-  def data():
-    return self.show_data
+     def pop(self):
+         return self.full_data.pop()
+
+     def peek(self):
+         return self.full_data[len(self.full_data)-1]
+
+     def data(self):
+        return (self.full_data)
+
+
 
 s = Stack()
-s.data
+print('testing for Stack')
+assert s.data()==[],'Answer was {} when it should have been {}'.format(s.data(),[])
+print(s.data())
+print('Passed')
+ 
 s.push('a')
 s.push('b')
 s.push('c')
-s.data
+print('testing for Push')
+assert s.data()==['a','b','c'],'Answer was {} when it should have been {}'.format(s.data(),['a','b','c'])
+print(s.data())
+print('Passed')
+s.pop()
 
-s.Pop()
-s.data
+print('testing for Pop')
+assert s.data()==['a','b'],'Answer was {} when it should have been {}'.format(s.data(),['a','b'])
+print(s.data())
+print('Passed')
 
-s.peek()
+print('testing for Peek')
+assert s.peek()=='b','Answer was {} when it should have been {}'.format(s.peek(),'b')
+print(s.peek())
+print('Passed')
 
-s.data
+print('testing for Data')
+assert s.data()==['a','b'],'Answer was {} when it should have been {}'.format(s.data(),[])
+print(s.data())
+print('Passed')
 
 
