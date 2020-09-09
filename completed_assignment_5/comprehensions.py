@@ -9,7 +9,7 @@ print('Passed')
 
 
 def even_odd_dict(numbers):
-    return {even_odd_dict_number: 'even' if even_odd_number % 2 == 0 else 'odd' for even_odd_dict_number in numbers}
+    return {even_odd_dict_number: 'even' if even_odd_dict_number % 2 == 0 else 'odd' for even_odd_dict_number in numbers}
 
 print('Testing even_odd_dict for [1, 2, 3, 5, 8, 11]')
 print(even_odd_dict([1, 2, 3, 5, 8, 11]))
