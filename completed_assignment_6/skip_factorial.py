@@ -1,14 +1,14 @@
 def skip_factorial_nonrecursive(n):
-  factorial=1
-  if(n % 2 ==0):
-    while n > 1:
-      factorial = factorial * n
-      n -= 2
-  else:
-     while n > 0:
-      factorial = factorial * n
-      n -= 2
-  return factorial
+    factorial = 1
+    if(n % 2 == 0):
+        while n > 1:
+            factorial = factorial * n
+            n -= 2
+    else:
+        while n > 0:
+            factorial = factorial * n
+            n -= 2
+    return factorial
 
 print(skip_factorial_nonrecursive(6))
 assert skip_factorial_nonrecursive(6) == 48, 'Answer is supposed to be 48'
