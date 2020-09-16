@@ -1,4 +1,4 @@
-
+from random import random
 
 def probability(num_heads, num_flips):
   posibilities = 2 ** num_flips 
@@ -28,7 +28,7 @@ def monte_carlo_probability(num_heads, num_flips):
   for i in range(1000):
     was_head = 0
     for j in range(num_flips):
-      from random import random
+      
       rand = round(random())
       if rand == 0:
         was_head += 1
