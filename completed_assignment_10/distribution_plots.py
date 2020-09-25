@@ -26,12 +26,7 @@ def probability(num_heads, num_flips):
   num_heads_outcomes = flips_fact / (head_fact * flip_minus_head_fact)
   return num_heads_outcomes / posibilities
 
-
-
-
-
 def monte_carlo_probability(num_heads, num_flips):
-  
   had_num_head = 0
   was_head = 0
   for i in range(1000):
@@ -43,8 +38,8 @@ def monte_carlo_probability(num_heads, num_flips):
         was_head += 1
     if was_head == num_heads:
       had_num_head += 1
-
   return had_num_head / 1000
+  
 for head in range (9):
   true_distribution_probability.append(probability(head,8))
   monte_carlo_probability_1.append(monte_carlo_probability(head,8))
@@ -59,7 +54,6 @@ plt.plot(heads,monte_carlo_probability_2,linewidth = 0.75 )
 plt.plot(heads,monte_carlo_probability_3,linewidth = 0.75 )
 plt.plot(heads,monte_carlo_probability_4,linewidth = 0.75 )
 plt.plot(heads,monte_carlo_probability_5,linewidth = 0.75 )
-
 
 plt.legend(['True','MC 1','MC 2','MC 3', 'MC 4', 'MC 5'])
 plt.xlabel('Number of Heads')
