@@ -60,8 +60,17 @@ def approximations_of_randomness(flips):
   divergence = []
   for index in range(len(flips_values)):
     divergence.append(kl_divergence(probabilities[index], [.0625, .25, .375, .25, .0625]))
+  index = 0
   
+  for key in flips:
+    flips[key] = divergence[index]
+    index += 1
+
   sorted_list = card_sort(divergence)
+
+  for key in flips:
+    if flips[key] == sorted_list[0]:
+      print(key)
   return sorted_list
   
 
