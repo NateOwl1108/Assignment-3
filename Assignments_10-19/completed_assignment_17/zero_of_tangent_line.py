@@ -16,7 +16,6 @@ def estimate_solution(initial_guess, precision):
   while abs(previous_guess - guess) > precision:
     previous_guess = guess
     guess = zero_of_tangent_line(previous_guess)
-
   return guess
 
 print('testing estimate_solution')
