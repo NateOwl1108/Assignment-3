@@ -89,5 +89,4 @@ node_values = [current_node.data]
 for _ in range(3):
     current_node = current_node.prev
     node_values.append(current_node.data)
-node_values
-['e', 'c', 'b', 'a']
+assert node_values == ['e', 'c', 'b', 'a']
