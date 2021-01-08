@@ -24,7 +24,7 @@ def merge(sorted_list_1, sorted_list_2):
 
 def merge_sort(num_list):
   if len(num_list) > 1:  
-    middle_index = len(num_list)//2
+    middle_index = len(num_list)/2
     first_half = num_list[:middle_index]
     second_half = num_list[middle_index:]
     print('first_half', first_half)

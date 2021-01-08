@@ -4,7 +4,7 @@ def tally_sort(num_list):
     if number < minimum:
       minimum = number
   for index in range(len(num_list)):
-    num_list[index] -= 2
+    num_list[index] -= minimum
   tally_list = [0 for _ in range(len(num_list))]
   for number in num_list:
     tally_list[number] += 1
