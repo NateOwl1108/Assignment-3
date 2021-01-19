@@ -15,74 +15,78 @@ print(calc_standard_normal_probability(-2,2))
 print(calc_standard_normal_probability(-3,3))
 
 def calc_standard_normal_probability(a,b,n,rule):
-  step_size = (b-a)/n
+  
   probability = 0
   probability_list = [[],[]]
+
   if rule == "left endpoint":
-    while a < b - step_size:
-      probability += step_size * function(a)
+    for index in range(len(n)-1):
+      step_size = (b-a)/n[index]
+      probability = step_size * function(n[index])
       probability_list[1].append(probability)
-      probability_list[0].append(a)
-      a += step_size
+      probability_list[0].append(n[index])
     return probability_list
+
   elif rule == "right endpoint":
-    while a < b:
-      a += step_size
-      probability += step_size * function(a)
+    for index in range(len(n)-1):
+      step_size = (b-a)/n[index]
+      probability = step_size * function(n[index+1])
       probability_list[1].append(probability)
-      probability_list[0].append(a)
+      probability_list[0].append(n[index])
     return probability_list
+
   elif rule =="midpoint":
-    next_x = a + step_size
-    while a < b:
-      probability += step_size * function((a+next_x)/2)
+    for index in range(len(n)-1):
+      step_size = (b-a)/n[index]
+      print('step_size', step_size)
+      print((n[index]+n[index+1])/2)
+      probability = step_size * function((n[index]+n[index+1])/2)
+      print('probability midpoint',probability)
       probability_list[1].append(probability)
-      probability_list[0].append(a)
-      a += step_size
-      next_x += step_size
-    print('probability midpoint',probability)
+      probability_list[0].append(n[index])
+    
     return probability_list
 
   #if rule is trapezoidal
   elif rule == "trapezoidal":
-    probability += step_size*.5*function(a)
+    probability =  (b-a)/n[0]*0.5 * function(n[0])
     probability_list[1].append(probability)
-    probability_list[0].append(a)
-    while a < b:
-      a += step_size
-      probability += step_size * function(a)
+    probability_list[0].append(n[0])
+    for index in range(1, len(n)-1):
+      step_size = (b-a)/n[index]
+      probability = step_size * function(n[index])
       probability_list[1].append(probability)
-      probability_list[0].append(a)
-    a += step_size
-    probability += step_size * .5 * function(a)
+      probability_list[0].append(n[index])
+    probability = (b-a)/n[len(n-1)] *0.5 * function(n[len(n)-1])
     probability_list[1].append(probability)
-    probability_list[0].append(a)
+    probability_list[0].append(n[len(n)-1])
     print('probability trapezoidal',probability)
     return probability_list
 
     #If rule is Simpson
   elif rule == "simpson":
-    probability += step_size*1/3*function(a)
+    probability =  (b-a)/n[0]*1/3 * function(n[0])
     probability_list[1].append(probability)
-    probability_list[0].append(a)
-    osolator = 1
-    while a < b:
-      a += step_size
-      probability += (3+osolator)*step_size/3 * function(a)
+    probability_list[0].append(n[0])
+    ocilator = 1
+    for index in range(len(n)-1):
+      step_size = (b-a)/n[index]
+      probability = (3+ocilator)* step_size/3 * function(n[index])
       probability_list[1].append(probability)
-      probability_list[0].append(a)
-      osolator = osolator * -1
-    a += step_size
-    probability += step_size * 1/3 * function(a)
+      probability_list[0].append(n[index])
+      ocilator = ocilator *-1
+    probability = (b-a)/n[len(n-1)] * 1/3* function(n[len(n)-1])
     probability_list[1].append(probability)
-    probability_list[0].append(a)
-    print('probability simpson',probability)
+    probability_list[0].append(n[len(n)-1])
+    print('probability trapezoidal',probability)
     return probability_list
-left = calc_standard_normal_probability(0,1,50,"left endpoint")
-right = calc_standard_normal_probability(0,1,50,"right endpoint")
-mid = calc_standard_normal_probability(0,1,50,"midpoint")
-trap =calc_standard_normal_probability(0,1,50,"trapezoidal")
-simpson = calc_standard_normal_probability(0,1,50,"simpson")
+
+n = [ n*2 for n in range(1,50)]
+left = calc_standard_normal_probability(0,1,n,"left endpoint")
+right = calc_standard_normal_probability(0,1,n,"right endpoint")
+mid = calc_standard_normal_probability(0,1,n,"midpoint")
+trap =calc_standard_normal_probability(0,1,n,"trapezoidal")
+simpson = calc_standard_normal_probability(0,1,n,"simpson")
 print()
 plt.plot(left[0],left[1],label = "left")
 plt.plot(right[0],right[1], label = 'right')
