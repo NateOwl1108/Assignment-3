@@ -1,4 +1,4 @@
-recommendClothing :: (RealFloat a) => a -> a -> String  
+recommendClothing :: (RealFloat a) => a -> String  
 recommendClothing degreesCelsius
     | degreesFahrenheit >= 80 = "You should wear a shortsleeve shirt."  
     | 65< degreesFahrenheit  = "You should wear a longsleeve shirt."   
@@ -6,4 +6,5 @@ recommendClothing degreesCelsius
     | otherwise = "You should wear a jacket."  
     where degreesFahrenheit = degreesCelsius *9/5 + 32 
  
-main = print(recommendClothing 30)
+main = print(recommendClothing 25)
+
