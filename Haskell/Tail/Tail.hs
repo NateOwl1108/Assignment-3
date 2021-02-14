@@ -8,10 +8,6 @@ take' n _
 take' _ []     = []  
 take' n (x:xs) = x : take' (n-1) xs
 
-tail' :: (Num i, Ord i) => i -> [a] -> [a]  
-tail' n _  
-    | n <= 0   = []  
-tail' _ []     = []  
-tail' n xs = reverseList (take' n (reverseList xs))
+tail' n = reverseList . take'  n . reverseList 
 
 main = print(tail' 4 [8, 3, -1, 2, -5, 7])
