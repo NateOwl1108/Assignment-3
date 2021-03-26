@@ -7,4 +7,10 @@ firstKEntriesOfSequence k = [0..k]
 
 termsToAddInMetaSum n =map fib (firstKEntriesOfSequence n)
 
-main = print(termsToAddInMetaSum 8)
+fiboffibs n = map termsToAddInMetaSum (termsToAddInMetaSum n)
+
+fibSum n = map sum(fiboffibs n)
+metaSum n = sum (fibSum n)
+
+
+main = print(metaSum 6)
