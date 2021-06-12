@@ -2,4 +2,4 @@
 #python assignment_33_graph.py
 #python Assignments_20-29/completed_assignment_23/merge_sort.py
 #python magic_square.py
-python hash_table.py
+python hash_table_class.py

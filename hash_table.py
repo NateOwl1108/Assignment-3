@@ -17,7 +17,7 @@ def find(input_array, key):
     index = hash_function(key)
     for group in intput_array[index]:
       if key in group:
-        return(group)
+        return group[1]
 
 print(array)
 array = [[], [], [], [], []]
